@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mujoco model="chase_arena">
+    <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+    <option timestep="0.02" integrator="RK4" gravity="0 0 -4.5" density="1000" viscosity="0"/>
+    <size njmax="200" nconmax="100"/>
+
+    <visual>
+        <map znear="0.01" zfar="60" fogstart="20" fogend="55" haze="0.4"/>
+        <global offheight="2048" offwidth="2048" fovy="55"/>
+        <quality shadowsize="4096"/>
+    </visual>
+
+    <asset>
+        <texture name="sky_tex" type="skybox" builtin="gradient" rgb1="0.55 0.68 0.95" rgb2="0.86 0.91 1.0" width="2048" height="2048"/>
+        <texture name="cloud_tex" type="2d" builtin="checker" rgb1="0.95 0.97 1.0" rgb2="0.78 0.84 0.9" width="1024" height="1024"/>
+        <texture name="grass_tex" type="2d" builtin="checker" rgb1="0.18 0.42 0.14" rgb2="0.12 0.32 0.1" width="2048" height="2048"/>
+        <texture name="flower_tex" type="2d" builtin="checker" rgb1="0.9 0.45 0.6" rgb2="0.95 0.92 0.4" width="512" height="512"/>
+        <texture name="armor_tex" type="cube" builtin="flat" rgb1="0.75 0.78 0.83" width="256" height="256"/>
+        <texture name="skin_tex" type="cube" builtin="flat" rgb1="0.95 0.84 0.72" width="128" height="128"/>
+        <texture name="cloth_blue_tex" type="2d" builtin="checker" rgb1="0.26 0.36 0.82" rgb2="0.16 0.26 0.62" width="512" height="512"/>
+        <texture name="cloth_orange_tex" type="2d" builtin="checker" rgb1="0.93 0.52 0.2" rgb2="0.74 0.34 0.12" width="512" height="512"/>
+        <material name="sky_mat" texture="sky_tex" reflectance="0.42" shininess="0.3"/>
+        <material name="cloud_mat" texture="cloud_tex" texrepeat="2 1" reflectance="0.12" shininess="0.05" rgba="1 1 1 0.28"/>
+        <material name="grass_mat" texture="grass_tex" texrepeat="10 10" specular="0.05" shininess="0.15" reflectance="0.07" emission="0.01"/>
+        <material name="flower_mat" texture="flower_tex" texrepeat="12 12" specular="0.12" shininess="0.35"/>
+        <material name="blue_mat" rgba="0.2 0.3 0.75 1" texture="armor_tex" specular="0.55" shininess="0.75" reflectance="0.32" emission="0.06"/>
+        <material name="orange_mat" rgba="0.85 0.4 0.18 1" texture="armor_tex" specular="0.52" shininess="0.72" reflectance="0.3" emission="0.05"/>
+        <material name="blue_cloth_mat" texture="cloth_blue_tex" specular="0.23" shininess="0.42" reflectance="0.18" emission="0.03"/>
+        <material name="orange_cloth_mat" texture="cloth_orange_tex" specular="0.25" shininess="0.44" reflectance="0.19" emission="0.03"/>
+        <material name="skin_mat" texture="skin_tex" specular="0.12" shininess="0.28" reflectance="0.08"/>
+        <material name="boundary_mat" rgba="0.7 0.7 0.7 0.25" texture="armor_tex" specular="0.28" shininess="0.55"/>
+    </asset>
+
+    <worldbody>
+        <light pos="4 -3 6" dir="-0.4 0.3 -1" directional="true" diffuse="0.9 0.9 1" specular="0.6 0.6 0.7" cutoff="50" exponent="4"/>
+        <light pos="-3 4 5" dir="0.3 -0.4 -1" directional="true" diffuse="1 0.9 0.8" specular="0.6 0.5 0.4" cutoff="60" exponent="3"/>
+        <geom name="sky_dome" type="sphere" size="40" material="sky_mat" contype="0" conaffinity="0" solimp="0 0 0" solref="1 1" group="1"/>
+        <geom name="cloud_layer" type="sphere" size="39.5" material="cloud_mat" contype="0" conaffinity="0" solimp="0 0 0" solref="1 1" group="1"/>
+        <geom name="floor" type="plane" size="12 12 0.1" material="grass_mat" friction="1 0.01 0.01"/>
+        <geom name="flower_ring" type="cylinder" size="5.2 0.02" material="flower_mat" contype="0" conaffinity="0" group="2"/>
+        <geom name="boundary" type="cylinder" size="5.5 0.04" contype="0" conaffinity="0" material="boundary_mat"/>
+
+        <body name="blue" pos="0 0 0.35">
+            <freejoint name="blue_free"/>
+            <geom name="blue_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="blue_mat" friction="0.9 0.05 0.05" density="650"/>
+            <geom name="blue_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="520"/>
+            <geom name="blue_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="blue_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="460"/>
+            <geom name="blue_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="blue_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="blue_belt" type="cylinder" pos="0 0 0.48" size="0.17 0.04" material="blue_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="blue_head" type="sphere" pos="0 0 0.92" size="0.12" material="skin_mat" friction="0.9 0.05 0.05" density="300"/>
+            <geom name="blue_visor" type="cylinder" pos="0 0.09 0.92" size="0.08 0.015" material="blue_mat" contype="0" conaffinity="0" density="150"/>
+        </body>
+
+        <body name="orange" pos="2.5 0 0.35">
+            <freejoint name="orange_free"/>
+            <geom name="orange_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="orange_mat" friction="0.9 0.05 0.05" density="650"/>
+            <geom name="orange_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="520"/>
+            <geom name="orange_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="orange_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="460"/>
+            <geom name="orange_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="orange_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="orange_belt" type="cylinder" pos="0 0 0.48" size="0.17 0.04" material="orange_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="orange_head" type="sphere" pos="0 0 0.92" size="0.12" material="skin_mat" friction="0.9 0.05 0.05" density="300"/>
+            <geom name="orange_mask" type="cylinder" pos="0 -0.09 0.92" size="0.08 0.015" material="orange_mat" contype="0" conaffinity="0" density="150"/>
+        </body>
+    </worldbody>
+</mujoco>
