@@ -15,6 +15,7 @@ BODY_RADIUS = 0.35
 BLUE_FORCE_SCALE = 220.0
 ORANGE_FORCE_SCALE = 260.0
 JUMP_VELOCITY = 10.0
+JUMP_PLANAR_BOOST = 6.0
 JUMP_COOLDOWN_STEPS = 30
 VELOCITY_SCALE = 12.0
 
@@ -236,6 +237,13 @@ class ChaseMujocoEnv:
         ready = self._jump_cooldowns[body_id] == 0
         if jump > 0.5 and on_ground and ready:
             qvel_adr = self._body_qvel_index[body_id]
+            planar_speed = np.linalg.norm(command)
+            if planar_speed > 1e-4:
+                # Give the jump meaningful forward carry based on the takeoff direction.
+                planar_dir = command / planar_speed
+                boost = planar_dir * (JUMP_PLANAR_BOOST * planar_speed)
+                self.data.qvel[qvel_adr] += boost[0]
+                self.data.qvel[qvel_adr + 1] += boost[1]
             self.data.qvel[qvel_adr + 2] = JUMP_VELOCITY
             self._jump_cooldowns[body_id] = JUMP_COOLDOWN_STEPS
 

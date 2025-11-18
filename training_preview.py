@@ -8,7 +8,7 @@ import numpy as np
 
 from chase_gym_env import HeuristicEvader
 from mujoco_env import ChaseMujocoEnv, SPAWN_HEIGHT
-
+    
 try:
     import mujoco.viewer as viewer
 except ImportError as exc:  # pragma: no cover - viewer dependency
@@ -89,4 +89,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-    

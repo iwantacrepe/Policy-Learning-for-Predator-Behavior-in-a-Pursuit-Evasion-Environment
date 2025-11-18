@@ -16,54 +16,104 @@
         <texture name="grass_tex" type="2d" builtin="checker" rgb1="0.18 0.42 0.14" rgb2="0.12 0.32 0.1" width="2048" height="2048"/>
         <texture name="flower_tex" type="2d" builtin="checker" rgb1="0.9 0.45 0.6" rgb2="0.95 0.92 0.4" width="512" height="512"/>
         <texture name="armor_tex" type="cube" builtin="flat" rgb1="0.75 0.78 0.83" width="256" height="256"/>
-        <texture name="skin_tex" type="cube" builtin="flat" rgb1="0.95 0.84 0.72" width="128" height="128"/>
-        <texture name="cloth_blue_tex" type="2d" builtin="checker" rgb1="0.26 0.36 0.82" rgb2="0.16 0.26 0.62" width="512" height="512"/>
-        <texture name="cloth_orange_tex" type="2d" builtin="checker" rgb1="0.93 0.52 0.2" rgb2="0.74 0.34 0.12" width="512" height="512"/>
+        <texture name="tom_fur_tex" type="cube" builtin="flat" rgb1="0.36 0.43 0.58" width="256" height="256"/>
+        <texture name="tom_face_tex" type="cube" builtin="flat" rgb1="0.78 0.82 0.88" width="256" height="256"/>
+        <texture name="tom_belly_tex" type="cube" builtin="flat" rgb1="0.92 0.94 0.95" width="256" height="256"/>
+        <texture name="tom_inner_tex" type="cube" builtin="flat" rgb1="0.96 0.79 0.83" width="256" height="256"/>
+        <texture name="jerry_fur_tex" type="cube" builtin="flat" rgb1="0.58 0.36 0.18" width="256" height="256"/>
+        <texture name="jerry_face_tex" type="cube" builtin="flat" rgb1="0.82 0.62 0.35" width="256" height="256"/>
+        <texture name="jerry_belly_tex" type="cube" builtin="flat" rgb1="0.95 0.8 0.55" width="256" height="256"/>
+        <texture name="jerry_inner_tex" type="cube" builtin="flat" rgb1="0.98 0.77 0.65" width="256" height="256"/>
+        <texture name="sun_tex" type="cube" builtin="flat" rgb1="1 0.93 0.58" width="128" height="128"/>
+        <texture name="mountain_tex" type="2d" builtin="checker" rgb1="0.38 0.44 0.5" rgb2="0.28 0.32 0.36" width="512" height="512"/>
+        <texture name="mountain_peak_tex" type="2d" builtin="checker" rgb1="0.86 0.9 0.95" rgb2="0.74 0.8 0.86" width="256" height="256"/>
+        <texture name="bush_tex" type="2d" builtin="checker" rgb1="0.18 0.38 0.15" rgb2="0.12 0.28 0.11" width="256" height="256"/>
+        <texture name="distant_field_tex" type="cube" builtin="flat" rgb1="0.38 0.58 0.3" width="256" height="256"/>
         <material name="sky_mat" texture="sky_tex" reflectance="0.42" shininess="0.3"/>
         <material name="cloud_mat" texture="cloud_tex" texrepeat="2 1" reflectance="0.12" shininess="0.05" rgba="1 1 1 0.28"/>
         <material name="grass_mat" texture="grass_tex" texrepeat="10 10" specular="0.05" shininess="0.15" reflectance="0.07" emission="0.01"/>
         <material name="flower_mat" texture="flower_tex" texrepeat="12 12" specular="0.12" shininess="0.35"/>
-        <material name="blue_mat" rgba="0.2 0.3 0.75 1" texture="armor_tex" specular="0.55" shininess="0.75" reflectance="0.32" emission="0.06"/>
-        <material name="orange_mat" rgba="0.85 0.4 0.18 1" texture="armor_tex" specular="0.52" shininess="0.72" reflectance="0.3" emission="0.05"/>
-        <material name="blue_cloth_mat" texture="cloth_blue_tex" specular="0.23" shininess="0.42" reflectance="0.18" emission="0.03"/>
-        <material name="orange_cloth_mat" texture="cloth_orange_tex" specular="0.25" shininess="0.44" reflectance="0.19" emission="0.03"/>
-        <material name="skin_mat" texture="skin_tex" specular="0.12" shininess="0.28" reflectance="0.08"/>
+        <material name="tom_fur_mat" texture="tom_fur_tex" specular="0.18" shininess="0.32" reflectance="0.08" emission="0.01"/>
+        <material name="tom_face_mat" texture="tom_face_tex" specular="0.1" shininess="0.25" reflectance="0.06" emission="0.01"/>
+        <material name="tom_belly_mat" texture="tom_belly_tex" specular="0.08" shininess="0.22" reflectance="0.05"/>
+        <material name="tom_inner_mat" texture="tom_inner_tex" specular="0.05" shininess="0.18" reflectance="0.03"/>
+        <material name="tom_nose_mat" rgba="0.85 0.46 0.55 1" specular="0.15" shininess="0.25" reflectance="0.04"/>
+        <material name="jerry_fur_mat" texture="jerry_fur_tex" specular="0.16" shininess="0.28" reflectance="0.07" emission="0.01"/>
+        <material name="jerry_face_mat" texture="jerry_face_tex" specular="0.12" shininess="0.26" reflectance="0.06"/>
+        <material name="jerry_belly_mat" texture="jerry_belly_tex" specular="0.08" shininess="0.2" reflectance="0.05"/>
+        <material name="jerry_inner_mat" texture="jerry_inner_tex" specular="0.06" shininess="0.2" reflectance="0.04"/>
+        <material name="jerry_nose_mat" rgba="0.6 0.27 0.22 1" specular="0.18" shininess="0.26" reflectance="0.05"/>
+        <material name="sun_mat" texture="sun_tex" emission="0.45" reflectance="0.3" shininess="0.1"/>
+        <material name="mountain_mat" texture="mountain_tex" specular="0.08" shininess="0.2" reflectance="0.05"/>
+        <material name="mountain_peak_mat" texture="mountain_peak_tex" specular="0.12" shininess="0.25" reflectance="0.07"/>
+        <material name="bush_mat" texture="bush_tex" specular="0.04" shininess="0.12" reflectance="0.03" emission="0.02"/>
+        <material name="distant_field_mat" texture="distant_field_tex" specular="0.03" shininess="0.08" reflectance="0.02"/>
         <material name="boundary_mat" rgba="0.7 0.7 0.7 0.25" texture="armor_tex" specular="0.28" shininess="0.55"/>
     </asset>
 
     <worldbody>
         <light pos="4 -3 6" dir="-0.4 0.3 -1" directional="true" diffuse="0.9 0.9 1" specular="0.6 0.6 0.7" cutoff="50" exponent="4"/>
         <light pos="-3 4 5" dir="0.3 -0.4 -1" directional="true" diffuse="1 0.9 0.8" specular="0.6 0.5 0.4" cutoff="60" exponent="3"/>
+        <geom name="sun" type="sphere" size="0.9" pos="-10 12 18" material="sun_mat" contype="0" conaffinity="0" group="1"/>
         <geom name="sky_dome" type="sphere" size="40" material="sky_mat" contype="0" conaffinity="0" solimp="0 0 0" solref="1 1" group="1"/>
         <geom name="cloud_layer" type="sphere" size="39.5" material="cloud_mat" contype="0" conaffinity="0" solimp="0 0 0" solref="1 1" group="1"/>
+        <geom name="cloud_puff_east" type="ellipsoid" size="1.6 2.4 0.9" pos="7 -6 6.5" material="cloud_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="cloud_puff_west" type="ellipsoid" size="1.9 2.6 1.0" pos="-8 5 7.2" material="cloud_mat" contype="0" conaffinity="0" group="1"/>
         <geom name="floor" type="plane" size="12 12 0.1" material="grass_mat" friction="1 0.01 0.01"/>
-        <geom name="flower_ring" type="cylinder" size="5.2 0.02" material="flower_mat" contype="0" conaffinity="0" group="2"/>
-        <geom name="boundary" type="cylinder" size="5.5 0.04" contype="0" conaffinity="0" material="boundary_mat"/>
+        <geom name="boundary" type="cylinder" size="5.5 0.04" material="boundary_mat" contype="0" conaffinity="0" group="2"/>
+        
+        <geom name="mountain_left" type="ellipsoid" size="3.0 2.4 3.6" pos="-11.5 -4.5 1.8" material="mountain_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="mountain_left_peak" type="ellipsoid" size="1.3 1.1 1.5" pos="-11.5 -4.5 3.6" material="mountain_peak_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="mountain_right" type="ellipsoid" size="3.4 2.8 4.0" pos="10.8 5.6 1.9" material="mountain_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="mountain_right_peak" type="ellipsoid" size="1.4 1.2 1.7" pos="10.8 5.6 3.9" material="mountain_peak_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="mountain_center" type="ellipsoid" size="2.7 2.7 3.2" pos="0 -11.8 1.6" material="mountain_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="mountain_center_peak" type="ellipsoid" size="1.2 1.2 1.4" pos="0 -11.8 3.3" material="mountain_peak_mat" contype="0" conaffinity="0" group="1"/>
+        <geom name="bush_cluster_north" type="ellipsoid" size="0.65 1.2 0.55" pos="3.6 8.2 0.45" material="bush_mat" contype="0" conaffinity="0" group="2"/>
+        <geom name="bush_cluster_north_inner" type="ellipsoid" size="0.6 1.0 0.5" pos="4.4 7.6 0.4" material="bush_mat" contype="0" conaffinity="0" group="2"/>
+        <geom name="bush_cluster_west" type="ellipsoid" size="1.1 0.6 0.45" pos="-8.4 -4.2 0.4" material="bush_mat" contype="0" conaffinity="0" group="2"/>
 
         <body name="blue" pos="0 0 0.35">
             <freejoint name="blue_free"/>
-            <geom name="blue_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="blue_mat" friction="0.9 0.05 0.05" density="650"/>
-            <geom name="blue_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="520"/>
-            <geom name="blue_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="480"/>
-            <geom name="blue_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="460"/>
-            <geom name="blue_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
-            <geom name="blue_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="blue_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
-            <geom name="blue_belt" type="cylinder" pos="0 0 0.48" size="0.17 0.04" material="blue_mat" friction="0.9 0.05 0.05" density="480"/>
-            <geom name="blue_head" type="sphere" pos="0 0 0.92" size="0.12" material="skin_mat" friction="0.9 0.05 0.05" density="300"/>
-            <geom name="blue_visor" type="cylinder" pos="0 0.09 0.92" size="0.08 0.015" material="blue_mat" contype="0" conaffinity="0" density="150"/>
+            <geom name="blue_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="tom_fur_mat" friction="0.9 0.05 0.05" density="650"/>
+            <geom name="blue_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="tom_fur_mat" friction="0.9 0.05 0.05" density="520"/>
+            <geom name="blue_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="tom_fur_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="blue_belly" type="sphere" pos="0 0.06 0.55" size="0.16" material="tom_belly_mat" contype="0" conaffinity="0" density="150"/>
+            <geom name="blue_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="tom_fur_mat" friction="0.9 0.05 0.05" density="460"/>
+            <geom name="blue_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="tom_fur_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="blue_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="tom_fur_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="blue_tail" type="capsule" fromto="0 -0.06 0.6 0 -0.46 0.82" size="0.04" material="tom_fur_mat" friction="0.9 0.05 0.05" density="200"/>
+            <geom name="blue_head" type="sphere" pos="0 0 0.94" size="0.13" material="tom_face_mat" friction="0.9 0.05 0.05" density="280"/>
+            <geom name="blue_muzzle" type="sphere" pos="0 0.09 0.9" size="0.09" material="tom_belly_mat" contype="0" conaffinity="0" density="160"/>
+            <geom name="blue_nose" type="sphere" pos="0 0.16 0.94" size="0.03" material="tom_nose_mat" contype="0" conaffinity="0" density="100"/>
+            <geom name="blue_ear_left" type="capsule" fromto="-0.08 0.02 1.02 -0.16 0.18 1.18" size="0.035" material="tom_fur_mat" friction="0.9 0.05 0.05" density="180"/>
+            <geom name="blue_ear_right" type="capsule" fromto="0.08 0.02 1.02 0.16 0.18 1.18" size="0.035" material="tom_fur_mat" friction="0.9 0.05 0.05" density="180"/>
+            <geom name="blue_inner_ear_left" type="capsule" fromto="-0.075 0.04 1.03 -0.135 0.17 1.17" size="0.02" material="tom_inner_mat" contype="0" conaffinity="0" density="80"/>
+            <geom name="blue_inner_ear_right" type="capsule" fromto="0.075 0.04 1.03 0.135 0.17 1.17" size="0.02" material="tom_inner_mat" contype="0" conaffinity="0" density="80"/>
+            <geom name="blue_whisker_left_upper" type="capsule" fromto="-0.03 0.14 0.93 -0.18 0.2 0.96" size="0.01" material="tom_belly_mat" contype="0" conaffinity="0" density="50"/>
+            <geom name="blue_whisker_left_lower" type="capsule" fromto="-0.03 0.12 0.9 -0.17 0.14 0.88" size="0.01" material="tom_belly_mat" contype="0" conaffinity="0" density="50"/>
+            <geom name="blue_whisker_right_upper" type="capsule" fromto="0.03 0.14 0.93 0.18 0.2 0.96" size="0.01" material="tom_belly_mat" contype="0" conaffinity="0" density="50"/>
+            <geom name="blue_whisker_right_lower" type="capsule" fromto="0.03 0.12 0.9 0.17 0.14 0.88" size="0.01" material="tom_belly_mat" contype="0" conaffinity="0" density="50"/>
+            <geom name="blue_snout" type="cylinder" pos="0 0.11 0.94" size="0.06 0.018" material="tom_belly_mat" contype="0" conaffinity="0" density="150"/>
         </body>
 
         <body name="orange" pos="2.5 0 0.35">
             <freejoint name="orange_free"/>
-            <geom name="orange_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="orange_mat" friction="0.9 0.05 0.05" density="650"/>
-            <geom name="orange_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="520"/>
-            <geom name="orange_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="480"/>
-            <geom name="orange_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="460"/>
-            <geom name="orange_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
-            <geom name="orange_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="orange_cloth_mat" friction="0.9 0.05 0.05" density="420"/>
-            <geom name="orange_belt" type="cylinder" pos="0 0 0.48" size="0.17 0.04" material="orange_mat" friction="0.9 0.05 0.05" density="480"/>
-            <geom name="orange_head" type="sphere" pos="0 0 0.92" size="0.12" material="skin_mat" friction="0.9 0.05 0.05" density="300"/>
-            <geom name="orange_mask" type="cylinder" pos="0 -0.09 0.92" size="0.08 0.015" material="orange_mat" contype="0" conaffinity="0" density="150"/>
+            <geom name="orange_boot" type="cylinder" pos="0 0 0.12" size="0.17 0.12" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="650"/>
+            <geom name="orange_leg" type="capsule" fromto="0 0 0.12 0 0 0.45" size="0.12" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="520"/>
+            <geom name="orange_torso" type="capsule" fromto="0 0 0.45 0 0 0.78" size="0.14" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="480"/>
+            <geom name="orange_belly" type="sphere" pos="0 0.05 0.56" size="0.18" material="jerry_belly_mat" contype="0" conaffinity="0" density="140"/>
+            <geom name="orange_shoulder" type="capsule" fromto="-0.24 0 0.72 0.24 0 0.72" size="0.07" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="460"/>
+            <geom name="orange_arm_left" type="capsule" fromto="-0.24 0 0.72 -0.34 0 0.4" size="0.06" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="orange_arm_right" type="capsule" fromto="0.24 0 0.72 0.34 0 0.4" size="0.06" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="420"/>
+            <geom name="orange_tail" type="capsule" fromto="0 -0.05 0.62 0 -0.6 0.68" size="0.03" material="jerry_fur_mat" friction="0.9 0.05 0.05" density="180"/>
+            <geom name="orange_head" type="sphere" pos="0 0 0.93" size="0.12" material="jerry_face_mat" friction="0.9 0.05 0.05" density="260"/>
+            <geom name="orange_muzzle" type="sphere" pos="0 0.09 0.89" size="0.085" material="jerry_belly_mat" contype="0" conaffinity="0" density="140"/>
+            <geom name="orange_nose" type="sphere" pos="0 0.14 0.93" size="0.025" material="jerry_nose_mat" contype="0" conaffinity="0" density="90"/>
+            <geom name="orange_ear_left" type="sphere" pos="-0.16 0.02 0.99" size="0.09" material="jerry_face_mat" friction="0.9 0.05 0.05" density="120"/>
+            <geom name="orange_ear_right" type="sphere" pos="0.16 0.02 0.99" size="0.09" material="jerry_face_mat" friction="0.9 0.05 0.05" density="120"/>
+            <geom name="orange_inner_ear_left" type="sphere" pos="-0.16 0.04 1.0" size="0.055" material="jerry_inner_mat" contype="0" conaffinity="0" density="70"/>
+            <geom name="orange_inner_ear_right" type="sphere" pos="0.16 0.04 1.0" size="0.055" material="jerry_inner_mat" contype="0" conaffinity="0" density="70"/>
+            <geom name="orange_mask" type="cylinder" pos="0 -0.07 0.93" size="0.07 0.015" material="jerry_belly_mat" contype="0" conaffinity="0" density="130"/>
         </body>
     </worldbody>
 </mujoco>
