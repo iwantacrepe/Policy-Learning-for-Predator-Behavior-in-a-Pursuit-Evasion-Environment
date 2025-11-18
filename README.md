@@ -46,10 +46,9 @@ The XML scene also includes decorative clouds, sun, distant mountains, and folia
 | [`chase_gym_env.py`](chase_gym_env.py) | Gymnasium-compatible wrapper plus advanced `HeuristicEvader` controller used for training and evaluation. |
 | [`train_headless.py`](train_headless.py) | Headless PPO training script (Stable-Baselines3) with checkpointing, evaluation, and VecNormalize support. |
 | [`training_preview.py`](training_preview.py) | Passive viewer showing heuristic chaser vs. heuristic evader — great for quick physics inspection. |
-| [`jump_demo.py`](jump_demo.py) | Stress-test demo with upgraded `AdaptiveChaser`/`AdaptiveEvader` heuristics to exercise jump mechanics. |
 | [`keyboard_control.py`](keyboard_control.py) | Manual control via keyboard in a GLFW window (WASD vs. IJKL). |
 | [`play_trained_policy.py`](play_trained_policy.py) | Load a saved PPO policy and watch it pursue the heuristic evader. |
-| [`play_ppo.py`](play_ppo.py) | Lightweight script to roll out PPO checkpoints (single episode, command-line driven). |
+| [`play_ppo.py`](play_ppo.py) | Formerly `jump_demo.py`; now bundles the heuristic jump demo with PPO checkpoint playback. |
 | [`models/`](models) | Example trained policy artefacts (e.g. `ppo_chase_final.zip`). |
 | `ppo_chase_final.zip`, `vecnormalize.pkl` | Sample trained policy and normalization statistics. |
 
@@ -108,10 +107,9 @@ Checkpoints and normalization stats are written to the specified directory. The 
 | Task | Command | Notes |
 | --- | --- | --- |
 | Quick heuristic preview | `python training_preview.py` | Heuristic chaser vs. heuristic evader in the MuJoCo viewer. |
-| Jump mechanics demo | `python jump_demo.py` | Uses smarter heuristics and emphasises aerial dynamics. |
+| Jump mechanics demo / PPO rollout | `python play_ppo.py` | Combines the old `jump_demo` heuristics with PPO playback options. |
 | Manual keyboard play | `python keyboard_control.py` | Requires GLFW; controls printed on startup. |
 | Play a trained PPO model | `python play_trained_policy.py checkpoints/ppo_chase_final.zip --episodes 5` | Use `--deterministic` for evaluation. |
-| Raw PPO rollout | `python play_ppo.py --model checkpoints/ppo_chase_final.zip` | CLI variant with fewer dependencies. |
 
 Each viewer exposes camera shortcuts (azimuth/elevation, zoom, reset). Close the window to terminate episodes cleanly.
 
